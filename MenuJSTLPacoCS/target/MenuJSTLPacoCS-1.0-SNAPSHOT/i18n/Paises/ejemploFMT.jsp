@@ -24,14 +24,14 @@
             <fmt:message var="gmt" key="${idioma}"/>
         </fmt:bundle>
         
-        <fmt:bundle basename = "${idioma}">
+        <fmt:bundle basename = "${codigo}">
             <p>Hola=<fmt:message key="hola"/></p>
             <p>Adios=<fmt:message key="adios"/></p>
         </fmt:bundle>
         
         
         --%>
-        <h1>El país elegido es: ${pais}</h1>
+        <h1>El país elegido es: ${pais}</h1><p>(Los valores por defecto son de Estados Unidos)</p>
         <fmt:setLocale value="en_US"/>
         <fmt:setBundle basename="en_US" var="eeuu"/>
         <p>Hola = <fmt:message key="hola" bundle="${eeuu}"/></p><br>
