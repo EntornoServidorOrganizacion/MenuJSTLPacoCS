@@ -20,13 +20,13 @@
         
         <fmt:setLocale value="${idioma}"/>
         
-        <fmt:bundle basename = "gmt">
-            <fmt:message var="gmt" key = "${idioma}"/>
+        <fmt:bundle basename="gmt">
+            <fmt:message var="gmt" key="${idioma}"/>
         </fmt:bundle>
         
         <fmt:bundle basename = "${idioma}">
-            <p>Hola = <fmt:message key="hola"/></p>
-            <p>Adios = <fmt:message key="adios"/></p>
+            <p>Hola=<fmt:message key="hola"/></p>
+            <p>Adios=<fmt:message key="adios"/></p>
         </fmt:bundle>
         
         
