@@ -4,10 +4,11 @@
     Author     : paco
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,34 +16,35 @@
         <title>FMT</title>
     </head>
     <body>
-        <fmt:setLocale value="${sss}"/>
+        <%-- 
+        
+        <fmt:setLocale value="${idioma}"/>
+        
         <fmt:bundle basename = "gmt">
-            <fmt:message key = "count.one"/><br/>
-            <fmt:message key = "count.two"/><br/>
-            <fmt:message key = "count.three"/><br/>
+            <fmt:message var="gmt" key = "${idioma}"/>
         </fmt:bundle>
+        
+        <fmt:bundle basename = "${idioma}">
+            <p>Hola = <fmt:message key="hola"/></p>
+            <p>Adios = <fmt:message key="adios"/></p>
+        </fmt:bundle>
+        
+        
+        --%>
+        <h1>El país elegido es: ${pais}</h1>
+        <fmt:setLocale value="en_US"/>
+        <fmt:setBundle basename="en_US" var="eeuu"/>
+        <p>Hola = <fmt:message key="hola" bundle="${eeuu}"/></p><br>
+        <p>Adios = <fmt:message key="adios" bundle="${eeuu}"/></p><br>
 
-        <!-- Change the Locale -->
-        <fmt:setLocale value = "es_ES"/>
-        <fmt:bundle basename = "gmt">
-            <fmt:message key = "count.one"/><br/>
-            <fmt:message key = "count.two"/><br/>
-            <fmt:message key = "count.three"/><br/>
-        </fmt:bundle>
-            <c:set var="idioma" value="${idioma}"/>
-            <c:set var="pais" value="${pais}"/>
-            <c:set var="codIdioma" value="${codIdioma}"/>
-            <c:set var="codPais" value="${codPais}"/>
-            <h1>IDIOMA: ${idioma}</h1>
-            <h1>PAIS: ${pais}</h1>
-            <h1>CODIGO IDIOMA: ${codIdioma}</h1>
-            <h1>CODIGO PAIS: ${codPais}</h1>
+
+
 
         <h2>Horas</h2>
         <ul>
             <li>Hora formato corto: <fmt:formatDate type="time" timeStyle="short" timeZone="${gmt}"  value="${fecha}" /></li>
             <li>Hora formato medio: <fmt:formatDate type="time" timeStyle="medium" timeZone="${gmt}"  value="${fecha}" /></li>
-            <li>Hora formato largo: <fmt:formatDate type="time" timeStyle="long" timeZone="${gmt}"  value="${requestScope.fecha}" /></li>  
+            <li>Hora formato largo: <fmt:formatDate type="time" timeStyle="long" timeZone="${gmt}"  value="${fecha}" /></li>  
         </ul>
         <br/>
         <h2>Fecha</h2>

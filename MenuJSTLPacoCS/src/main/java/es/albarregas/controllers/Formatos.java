@@ -26,6 +26,7 @@ public class Formatos extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = null;
+        String codigo = "";
         String codIdioma = "";
         String codPais = "";
         String pais = "";
@@ -43,12 +44,14 @@ public class Formatos extends HttpServlet {
                 codPais = request.getParameter("pais").substring(3, 5);
                 String[] arrayPaisYCodigo = request.getParameter("pais").split("-");
                 pais = arrayPaisYCodigo[1];
+                codigo = arrayPaisYCodigo[0];
                 fecha = new Date();
                 idioma = new Locale(codIdioma, codPais);
                 
                 request.setAttribute("numero", numero);
                 request.setAttribute("codIdioma", codIdioma);
                 request.setAttribute("codPais", codPais);
+                request.setAttribute("codigo", codigo);
                 request.setAttribute("pais", pais);
                 request.setAttribute("fecha", fecha);
                 request.setAttribute("idioma", idioma);
